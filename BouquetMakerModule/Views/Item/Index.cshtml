@@ -1,0 +1,100 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable<Dnn.Bce.BouquetMakerModule.Models.Item>>
+
+@using System.Text.RegularExpressions
+@using DotNetNuke.Web.Mvc.Helpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Csokorkészítő felület</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        div.text-center {
+            font-family: Arial, sans-serif;
+            margin-bottom: 40px;
+        }
+
+        .image-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-options img {
+                width: 150px;
+                margin: 10px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+        }
+
+        .image-options img:hover {
+                    transform: scale(1.1);
+        }
+
+        .selected {
+            
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+
+        .selected-image {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-content options">
+        <div class="custom-tab active" id="presentation-option">
+            <h2 class="title text-center optionsHeader-sm">Milyen csomagolásban érkezzen az összeállítása?</h2>
+            <div class="text-center optionsHint">
+                <p>Válassza ki a csomagolás típusát!</p>
+            </div>
+            <input type="hidden" id="selected_image" name="selected_image"> <!-- Hidden input field to store the selected value -->
+            <div class="image-options">
+                <img src="https://d145lal0wx50bl.cloudfront.net/assets/user/bouquet/bouquet-0d9e490ff3c6e0b5b6dab957fc01b077d2ff6c7b8ffe902cb82baac45f0255ba.png" alt="Csokor" onclick="selectImage(this)">
+                <img src="https://d145lal0wx50bl.cloudfront.net/assets/user/bouquet/boxed-9037c39ad1d5f8d0083a4c1952d46814052da068e29e226c0ad62ac76a486a8e.png" alt="Doboz" onclick="selectImage(this)">
+            </div>
+
+            <hr class="default-line">
+        </div>
+    </div>
+
+
+    <script>
+        function selectImage(img) {
+            // Remove border from previously selected image
+            var prevSelectedImage = document.querySelector('.selected-image');
+            if (prevSelectedImage) {
+                prevSelectedImage.classList.remove('selected-image');
+            }
+
+            // Add border to the selected image
+            img.classList.add('selected-image');
+
+            // Set the selected image value to the hidden input field
+            document.getElementById('selected_image').value = img.alt;
+        }
+    </script>
+
+</body>
+</html>

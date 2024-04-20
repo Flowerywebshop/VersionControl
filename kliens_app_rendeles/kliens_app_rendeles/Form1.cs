@@ -18,6 +18,7 @@ namespace kliens_app_rendeles
         private HotcakesKezeles store = new HotcakesKezeles();
         private Szures search = new Szures();
 
+
         DataGridViewCellStyle headerCellStyle = new DataGridViewCellStyle();
         DataGridViewCellStyle selectedCellStyle = new DataGridViewCellStyle();
 
@@ -120,12 +121,31 @@ namespace kliens_app_rendeles
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+            search.ShowDialog();
+
+            filteredOrders = new List<Rendeles>();
+
+            foreach (Rendeles order in store.Orders)
+            {
+                if (order.Date >= search.DateStart && order.Date <= search.DateEnd)
+                {
+                   
+                    filteredOrders.Add(order);
+                    
+                }
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (checkBox1.Checked)
+            {
+                dataGridView1.DataSource = filteredOrders;
+            }
+            else
+            {
+                dataGridView1.DataSource = store.Orders;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,6 +169,11 @@ namespace kliens_app_rendeles
             {
                 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

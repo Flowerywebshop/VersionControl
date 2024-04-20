@@ -51,7 +51,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1287, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(1268, 314);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -62,7 +62,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1287, 199);
+            this.dataGridView2.Size = new System.Drawing.Size(1268, 199);
             this.dataGridView2.TabIndex = 1;
             // 
             // label1
@@ -152,12 +152,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1111, 588);
+            this.button4.Location = new System.Drawing.Point(1092, 588);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 75);
             this.button4.TabIndex = 11;
             this.button4.Text = "Vissza";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 

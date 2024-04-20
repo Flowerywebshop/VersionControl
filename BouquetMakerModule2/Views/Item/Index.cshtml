@@ -88,15 +88,26 @@
             font-size: 16px;
         }
 
-        .options {
+        #select-options {
             font-size: 16px;
             border-color: transparent;
             padding: 2px 2px 2px 2px;
             text-align: center;
+            cursor: pointer;
         }
 
-        combobox{
+            #select-options ::selection {
+                background: #70bb8b;
+                color: #fff;
+                text-shadow: none;
+                border: none;
+            }
 
+        ::selection {
+            background: #70bb8b;
+            color: #fff;
+            text-shadow: none;
+            border: none;
         }
 
         /* Custom select dropdown styles */
@@ -150,6 +161,33 @@
                 }
 
 
+        .checkout-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition-duration: 0.4s;
+            margin-top: 40px;
+        }
+
+            /* Add hover effect */
+            .checkout-button:hover {
+                background-color: #45a049; /* Darker green */
+            }
+
+            /* Add a bit of shadow for depth */
+            .checkout-button:active {
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+
     </style>
 </head>
 <body>
@@ -169,12 +207,13 @@
             <div class="image-options">
                 <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1614936770/pynroaa4x7wh9ut5ko4g.jpg" alt="Roses" onclick="selectOption(this)">
                 <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1616053450/zdyu9un15t8bobnckk2v.jpg" alt="Oriental Lilies" onclick="selectOption(this)">
+                <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1616053626/edsf6xurhpozxtsnuiht.jpg"" alt="Gerberas" onclick="selectOption(this)">
             </div>
             <hr class="default-line">
             <h2>Válassza ki a csomagolás színét!</h2>
             <div class="image-options">
                 <div class="custom-select">
-                    <select id="options">
+                    <select id="select-options">
                         <option value="Átlátszó">Átlátszó</option>
                         <option value="Natúr">Natúr</option>
                         <option value="Virágmintás">Virágmintás</option>
@@ -186,7 +225,7 @@
         <h2>Válassza ki a virágok színárnyalatát!</h2>
         <div class="image-options">
             <div class="custom-select">
-                <select id="options">
+                <select id="select-options">
                     <option value="Kék">Kevert pasztell színek</option>
                     <option value="Natúr">Kevert élénk színek</option>
                     <option value="Virágmintás">Rózsaszín árnyalat</option>
@@ -197,7 +236,10 @@
             </div>
         </div>
     </div>
+    <div class="image-options">
+        <button class="checkout-button">Kosár</button>
     </div>
+    
 
 
     <script>

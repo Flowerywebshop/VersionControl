@@ -18,6 +18,7 @@ namespace kliens_app_rendeles
         private HotcakesKezeles store = new HotcakesKezeles();
         private Szures search = new Szures();
 
+
         DataGridViewCellStyle headerCellStyle = new DataGridViewCellStyle();
         DataGridViewCellStyle selectedCellStyle = new DataGridViewCellStyle();
 

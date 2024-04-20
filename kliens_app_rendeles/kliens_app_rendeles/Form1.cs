@@ -59,15 +59,18 @@ namespace kliens_app_rendeles
             {
                 //labelConnectivityStatus.Text = "Hiba lépett fel a rendeelések letöltése közben";
             }
+
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
 
+            
         }
         private void UpdateOrderDetails(string orderId)
         {
-            
+           
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -82,7 +85,8 @@ namespace kliens_app_rendeles
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
+           
         }
     }
 }

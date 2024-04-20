@@ -48,26 +48,74 @@ namespace kliens_app_rendeles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //labelConnectivityStatus.Text = "Rendelések letöltése folyamatban...";
+            
             if (store.UpdateDataFromHotcakes())
 
             {
-                //labelConnectivityStatus.Text = "Kész";
+               
                 dataGridView1.DataSource = store.Orders;
             }
             else
             {
-                //labelConnectivityStatus.Text = "Hiba lépett fel a rendeelések letöltése közben";
+                
             }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
 
+            try
+            {
+                var order = store.Orders[dataGridView1.SelectedRows[0].Index];
+
+                comboBox1.Text = order.Status;
+               
+                UpdateOrderDetails(order.Bvin);
+
+                decimal totalPrice = 0;
+
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    
+                    if (!row.IsNewRow)
+                    {
+                        
+                        if (decimal.TryParse(row.Cells["Price"].Value.ToString(), out decimal price))
+                        {
+                            totalPrice += price;
+                        }
+                    }
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+               
+            }
         }
         private void UpdateOrderDetails(string orderId)
         {
-            
+          
+
+            List<Termek> items = store.GetOrderItems(orderId);
+
+            foreach (Termek item in items)
+            {
+                Debug.WriteLine(item.Name, item.Quantity, item.Price);
+            }
+
+            dataGridView2.DataSource = items;
+
+            if (items == null)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -82,7 +130,25 @@ namespace kliens_app_rendeles
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string selectedOrderBvin = store.Orders[dataGridView1.SelectedRows[0].Index].Bvin;
+                
+                bool done = store.SetOrderState(selectedOrderBvin, comboBox1.Text);
+                if (done)
+                {
+                    store.Orders[dataGridView1.SelectedRows[0].Index].Status = comboBox1.Text;
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            catch
+            {
+                
+            }
         }
     }
 }

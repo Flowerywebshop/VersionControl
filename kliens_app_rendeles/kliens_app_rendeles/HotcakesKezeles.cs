@@ -23,11 +23,7 @@ namespace kliens_app_rendeles
         public List<Felhasznalo> Users { get { return _users; } }
 
         public void Init()
-        /*
-         Api kapcsolat létrehozésa. Szügséges az összes lekérdezéshez.
-         Amennyiben nincs init, akkor egy "HotcakesStore must be initialized first!"
-         hiba keletkezik.
-         */
+        
         {
             proxy = new Hotcakes.CommerceDTO.v1.Client.Api(URL, API_KEY);
         }

@@ -1,0 +1,183 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<IEnumerable<Dnn.Bce.BouquetMakerModule2.Models.Item>>
+
+@using System.Text.RegularExpressions
+@using DotNetNuke.Web.Mvc.Helpers
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Csokorkészítő felület</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        div.text-center {
+            font-family: Arial, sans-serif;
+            margin-bottom: 40px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+            .image-options img {
+                width: 150px;
+                margin: 10px;
+                cursor: pointer;
+                transition: transform 0.3s ease-in-out;
+                border-radius: 8px;
+            }
+
+                .image-options img:hover {
+                    transform: scale(1.1);
+                }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+
+        .selected-image {
+            border: 2px solid #70bb8b;
+        }
+
+        .cab-thumbnail {
+            float: left;
+            margin-right: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+            .cab-thumbnail img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+            }
+
+        .cab-thumb-flower-name {
+            background-color: #70bb8b;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-content options">
+        <div class="custom-tab active" id="presentation-option">
+            <h2 class="title text-center optionsHeader-sm">Milyen csomagolásban érkezzen az összeállítása?</h2>
+            <div class="text-center optionsHint">
+                <p>Válassza ki a csomagolás típusát!</p>
+            </div>
+            <!--<input type="hidden" id="selected_image" name="selected_image">--> <!-- Hidden input field to store the selected value -->
+            <div class="image-options">
+
+                <img src="https://d145lal0wx50bl.cloudfront.net/assets/user/bouquet/bouquet-0d9e490ff3c6e0b5b6dab957fc01b077d2ff6c7b8ffe902cb82baac45f0255ba.png" alt="Csokor" onclick="selectOption(this)">
+                <img src="https://d145lal0wx50bl.cloudfront.net/assets/user/bouquet/boxed-9037c39ad1d5f8d0083a4c1952d46814052da068e29e226c0ad62ac76a486a8e.png" alt="Doboz" onclick="selectOption(this)">
+
+            </div>
+            <hr class="default-line">
+
+
+            <h2>Milyen virágtípusokat szeretne?</h2>
+            <p>Segítünk a választásban!</p>
+            <div class="image-options">
+                <!--<div class="cab-thumbnail">
+                    <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1614936770/pynroaa4x7wh9ut5ko4g.jpg" alt="Roses">
+                    <div class="cab-thumb-flower-name">Rózsa</div>
+
+                </div>
+                <div class="cab-thumbnail">
+                    <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1616053450/zdyu9un15t8bobnckk2v.jpg" alt="Oriental Lilies">
+                    <div class="cab-thumb-flower-name">Liliom</div>
+                </div>-->
+
+
+                <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1614936770/pynroaa4x7wh9ut5ko4g.jpg" alt="Roses" onclick="selectOption(this)">
+                <img src="https://res.cloudinary.com/flowers-across-aus/image/upload/c_fill,f_auto,h_200,q_auto,w_200/v1616053450/zdyu9un15t8bobnckk2v.jpg" alt="Oriental Lilies" onclick="selectOption(this)">
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+                /*function selectImage(img) {
+                    // Remove border from previously selected image
+                    var prevSelectedImage = document.querySelector('.selected-image');
+                    if (prevSelectedImage) {
+                        prevSelectedImage.classList.remove('selected-image');
+                    }
+
+                    // Add border to the selected image
+                    img.classList.add('selected-image');
+
+                    // Set the selected image value to the hidden input field
+                    document.getElementById('selected_image').value = img.alt;
+                }*/
+
+                var selectedOptions = {
+                    packaging: null,
+                    flowers: []
+                };
+
+                function selectOption(option) {
+                    var optionType = option.alt;
+
+                    if (optionType === 'Csokor' || optionType === 'Doboz') {
+                        selectedOptions.packaging = optionType;
+                        updateSelection();
+                    } else {
+                        var index = selectedOptions.flowers.indexOf(optionType);
+                        if (index === -1 && selectedOptions.flowers.length < 3) {
+                            selectedOptions.flowers.push(optionType);
+                        } else if (index !== -1) {
+                            selectedOptions.flowers.splice(index, 1);
+                        }
+
+                        updateSelection();
+                    }
+                }
+
+                function updateSelection() {
+                    var options = document.querySelectorAll('.image-options img');
+                    options.forEach(function (option) {
+                        if (option.alt === selectedOptions.packaging || selectedOptions.flowers.includes(option.alt)) {
+                            option.classList.add('selected-image');
+                        } else {
+                            option.classList.remove('selected-image');
+                        }
+                    });
+                }
+    </script>
+
+</body>
+</html>

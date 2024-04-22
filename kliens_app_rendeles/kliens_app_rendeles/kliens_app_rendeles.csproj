@@ -33,13 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hotcakes.Commerce">
+    <Reference Include="Hotcakes.Commerce, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>lib\Hotcakes.Commerce.dll</HintPath>
     </Reference>
-    <Reference Include="Hotcakes.Commerce.Dnn">
+    <Reference Include="Hotcakes.Commerce.Dnn, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>lib\Hotcakes.Commerce.Dnn.dll</HintPath>
     </Reference>
-    <Reference Include="Hotcakes.CommerceDTO">
+    <Reference Include="Hotcakes.CommerceDTO, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>lib\Hotcakes.CommerceDTO.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Modules">
@@ -142,19 +142,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Commerce.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Commerce.Dnn.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.CommerceDTO.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Modules.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Payment.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Web.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Helpers.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Mvc.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Razor.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.Deployment.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.dll" />
-    <Analyzer Include="..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.Razor.dll" />
+    <Analyzer Include=".\lib\Hotcakes.Commerce.dll" />
+    <Analyzer Include=".\lib\Hotcakes.Commerce.Dnn.dll" />
+    <Analyzer Include=".\lib\Hotcakes.CommerceDTO.dll" />
+    <Analyzer Include=".\lib\Hotcakes.Modules.dll" />
+    <Analyzer Include=".\lib\Hotcakes.Payment.dll" />
+    <Analyzer Include=".\lib\Hotcakes.Web.dll" />
+    <Analyzer Include=".\lib\Newtonsoft.Json.dll" />
+    <Analyzer Include=".\lib\System.Web.Helpers.dll" />
+    <Analyzer Include=".\lib\System.Web.Mvc.dll" />
+    <Analyzer Include=".\lib\System.Web.Razor.dll" />
+    <Analyzer Include=".\lib\System.Web.WebPages.Deployment.dll" />
+    <Analyzer Include=".\lib\System.Web.WebPages.dll" />
+    <Analyzer Include=".\lib\System.Web.WebPages.Razor.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />

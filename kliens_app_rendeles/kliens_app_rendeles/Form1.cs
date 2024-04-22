@@ -19,6 +19,7 @@ namespace kliens_app_rendeles
         private Szures search = new Szures();
 
 
+
         DataGridViewCellStyle headerCellStyle = new DataGridViewCellStyle();
         DataGridViewCellStyle selectedCellStyle = new DataGridViewCellStyle();
 

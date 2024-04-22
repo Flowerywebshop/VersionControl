@@ -26,7 +26,7 @@ namespace kliens_app_rendeles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
     }
 }

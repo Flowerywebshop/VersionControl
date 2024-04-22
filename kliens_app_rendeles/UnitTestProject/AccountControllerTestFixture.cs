@@ -92,7 +92,7 @@ namespace UnitTestProject
         public bool ValidateUsername(string username)
         {
             // Felhasználónév legalább 3 karakter hosszú legyen
-            if (username.Length < 3) return false;
+            if (username.Length > 3) return false;
 
             // Csak angol ABC betűk és számok
             if (!Regex.IsMatch(username, "^[a-zA-Z0-9]+$")) return false;

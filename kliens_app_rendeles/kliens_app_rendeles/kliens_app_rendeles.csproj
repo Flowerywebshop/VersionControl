@@ -34,46 +34,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Hotcakes.Commerce">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Commerce.dll</HintPath>
+      <HintPath>lib\Hotcakes.Commerce.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Commerce.Dnn">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Commerce.Dnn.dll</HintPath>
+      <HintPath>lib\Hotcakes.Commerce.Dnn.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.CommerceDTO">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.CommerceDTO.dll</HintPath>
+      <HintPath>lib\Hotcakes.CommerceDTO.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Modules">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Modules.dll</HintPath>
+      <HintPath>lib\Hotcakes.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Payment">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Payment.dll</HintPath>
+      <HintPath>lib\Hotcakes.Payment.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Web">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Hotcakes.Web.dll</HintPath>
+      <HintPath>lib\Hotcakes.Web.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Helpers.dll</HintPath>
+      <HintPath>lib\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Mvc.dll</HintPath>
+      <HintPath>lib\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.Razor.dll</HintPath>
+      <HintPath>lib\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.dll</HintPath>
+      <HintPath>lib\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>lib\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>..\..\..\..\..\..\Downloads\kliens\kliens\github\BBBKliensAlkalmazas\BBBKliensAlkalmazas\lib\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>lib\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

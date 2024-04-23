@@ -37,7 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Mégse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,8 +46,6 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(214, 22);
             this.usernameTextBox.TabIndex = 0;
-            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextBox_Validating);
-            this.usernameTextBox.Validated += new System.EventHandler(this.usernameTextBox_Validated);
             // 
             // emailTextBox
             // 
@@ -56,8 +53,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(214, 22);
             this.emailTextBox.TabIndex = 1;
-            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
-            this.emailTextBox.Validated += new System.EventHandler(this.emailTextBox_Validated);
             // 
             // passwordTextBox
             // 
@@ -66,8 +61,6 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(214, 22);
             this.passwordTextBox.TabIndex = 2;
-            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
-            this.passwordTextBox.Validated += new System.EventHandler(this.passwordTextBox_Validated);
             // 
             // label1
             // 
@@ -98,7 +91,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(131, 135);
+            this.submitButton.Location = new System.Drawing.Point(156, 120);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 6;
@@ -110,23 +103,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Mégse
-            // 
-            this.Mégse.CausesValidation = false;
-            this.Mégse.Enabled = false;
-            this.Mégse.Location = new System.Drawing.Point(240, 135);
-            this.Mégse.Name = "Mégse";
-            this.Mégse.Size = new System.Drawing.Size(75, 23);
-            this.Mégse.TabIndex = 7;
-            this.Mégse.Text = "Mégse";
-            this.Mégse.UseVisualStyleBackColor = true;
-            // 
             // Bejelentkezes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 183);
-            this.Controls.Add(this.Mégse);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -152,6 +133,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button Mégse;
     }
 }

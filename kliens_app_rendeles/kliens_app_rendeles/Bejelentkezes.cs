@@ -15,24 +15,24 @@ namespace kliens_app_rendeles
 {
     public partial class Bejelentkezes : Form
     {
-        
+
         public Bejelentkezes()
         {
             InitializeComponent();
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-              if (ValidateChildren() == true)
+            if (ValidateChildren() == true)
             {
                 DialogResult = DialogResult.OK;
             }
 
             Form2 form2 = new Form2();
-                form2.ShowDialog();
-          
-           
+            form2.ShowDialog();
+
+
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace kliens_app_rendeles
 
         private void felhasznalo_TextChanged(object sender, EventArgs e)
         {
-     
+
         }
 
         private bool CheckName(string name)
@@ -72,7 +72,7 @@ namespace kliens_app_rendeles
                 e.Cancel = true;
                 errorProvider1.SetError(emailTextBox, "Érvénytelen email cím. Kérjük, adja meg a helyes formátumot.");
             }
-        
+
 
         }
 

@@ -118,7 +118,7 @@
             this.Mégse.Name = "Mégse";
             this.Mégse.Size = new System.Drawing.Size(75, 23);
             this.Mégse.TabIndex = 7;
-            this.Mégse.Text = "button1";
+            this.Mégse.Text = "Mégse";
             this.Mégse.UseVisualStyleBackColor = true;
             // 
             // Bejelentkezes

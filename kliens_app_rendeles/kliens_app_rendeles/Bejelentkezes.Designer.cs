@@ -46,6 +46,8 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(214, 22);
             this.usernameTextBox.TabIndex = 0;
+            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextBox_Validating);
+            this.usernameTextBox.Validated += new System.EventHandler(this.usernameTextBox_Validated);
             // 
             // emailTextBox
             // 
@@ -53,6 +55,8 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(214, 22);
             this.emailTextBox.TabIndex = 1;
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
+            this.emailTextBox.Validated += new System.EventHandler(this.emailTextBox_Validated);
             // 
             // passwordTextBox
             // 
@@ -61,6 +65,8 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(214, 22);
             this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
+            this.passwordTextBox.Validated += new System.EventHandler(this.passwordTextBox_Validated);
             // 
             // label1
             // 

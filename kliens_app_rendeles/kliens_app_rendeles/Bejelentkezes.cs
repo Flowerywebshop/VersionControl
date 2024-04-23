@@ -27,6 +27,7 @@ namespace kliens_app_rendeles
             if (ValidateChildren() == true)
             {
                 DialogResult = DialogResult.OK;
+
             }
 
             Form2 form2 = new Form2();
@@ -35,15 +36,6 @@ namespace kliens_app_rendeles
 
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void felhasznalo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private bool CheckName(string name)
         {
@@ -58,6 +50,7 @@ namespace kliens_app_rendeles
                 errorProvider1.SetError(usernameTextBox, "Nem lehet üres!");
             }
         }
+
         private void usernameTextBox_Validated(object sender, EventArgs e)
         {
             errorProvider1.SetError(usernameTextBox, string.Empty);
@@ -72,13 +65,12 @@ namespace kliens_app_rendeles
                 e.Cancel = true;
                 errorProvider1.SetError(emailTextBox, "Érvénytelen email cím. Kérjük, adja meg a helyes formátumot.");
             }
-
-
         }
 
         private void emailTextBox_Validated(object sender, EventArgs e)
         {
             errorProvider1.SetError(emailTextBox, string.Empty);
+
         }
 
         public bool ValidatePassword(string password)
@@ -98,18 +90,27 @@ namespace kliens_app_rendeles
             // Ha minden feltétel teljesül, akkor érvényes a jelszó
             return true;
         }
+
+
         private void passwordTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (!CheckName(passwordTextBox.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(passwordTextBox, "Kell legalább egy nagybetű, egy kisbetű és egy szám, a jelszónak legalább 8 karakternek kell lennie");
+
             }
+
         }
 
         private void passwordTextBox_Validated(object sender, EventArgs e)
         {
-            errorProvider1.SetError(passwordTextBox, string.Empty);
+
+            {
+                errorProvider1.SetError(passwordTextBox, string.Empty);
+
+            }
         }
     }
 }
+

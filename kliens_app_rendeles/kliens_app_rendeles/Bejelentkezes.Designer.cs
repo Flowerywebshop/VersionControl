@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
@@ -36,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameTextBox
@@ -46,8 +45,6 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(214, 22);
             this.usernameTextBox.TabIndex = 0;
-            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextBox_Validating);
-            this.usernameTextBox.Validated += new System.EventHandler(this.usernameTextBox_Validated);
             // 
             // emailTextBox
             // 
@@ -55,8 +52,6 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(214, 22);
             this.emailTextBox.TabIndex = 1;
-            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
-            this.emailTextBox.Validated += new System.EventHandler(this.emailTextBox_Validated);
             // 
             // passwordTextBox
             // 
@@ -65,8 +60,6 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(214, 22);
             this.passwordTextBox.TabIndex = 2;
-            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
-            this.passwordTextBox.Validated += new System.EventHandler(this.passwordTextBox_Validated);
             // 
             // label1
             // 
@@ -97,23 +90,39 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(156, 120);
+            this.submitButton.Location = new System.Drawing.Point(19, 119);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(75, 23);
+            this.submitButton.Size = new System.Drawing.Size(740, 52);
             this.submitButton.TabIndex = 6;
             this.submitButton.Text = "Belépés";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // errorProvider1
+            // label4
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(391, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(266, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "(8 karakter, ami tartalmaz kis -és nagybetűt )";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(394, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(365, 16);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "( 8 karakter, ami tartalmaz számot, továbbá kis-és nagybetűt)";
             // 
             // Bejelentkezes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 183);
+            this.ClientSize = new System.Drawing.Size(789, 183);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -123,7 +132,6 @@
             this.Controls.Add(this.usernameTextBox);
             this.Name = "Bejelentkezes";
             this.Text = "Bejelentkezes";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +146,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

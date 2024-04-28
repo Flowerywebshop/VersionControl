@@ -33,7 +33,9 @@ namespace UnitTestProject
         [Test,
     TestCase("abcdefgH", false),  // nincs szám
     TestCase("12345678", false),  // nincs kisbetű
-    TestCase("abcdefgh", false),  // nincs nagybetű
+    TestCase("abcdefgh", false),   // nincs nagybetű
+    TestCase("Ab123456",true) ,                 
+
    ]
         public void TestValidatePassword(string password, bool expectedResult)
         {
@@ -49,9 +51,8 @@ namespace UnitTestProject
         }
         [Test,
          TestCase("", false),            // Üres felhasználónév
-        
-      
          TestCase("user!name", false),   // Tiltott karakter
+        TestCase("UserName", true),
          ]
         public void TestValidateUsername(string username, bool expectedResult)
         {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace kliens_app_rendeles
@@ -12,20 +13,14 @@ namespace kliens_app_rendeles
     {
         public bool ValidatePassword(string password)
         {
-            // Legalább 8 karakter
-            if (password.Length > 8) return false;
+            // Legalább 3 karakter
+            if (password.Length < 3) return false;
 
-            // Legalább egy kisbetű
-            if (!Regex.IsMatch(password, "[a-z]")) return false;
+            // Csak angol ABC betűk és számok
+            if (Regex.IsMatch(password, "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d]{4,}$")) return true;
 
-            // Legalább egy nagybetű
-            if (!Regex.IsMatch(password, "[A-Z]")) return false;
-
-            // Legalább egy szám
-            if (!Regex.IsMatch(password, "[0-9]")) return false;
-
-            // Ha minden feltétel teljesül, akkor érvényes a jelszó
-            return true;
+            // Ha minden feltétel teljesül, akkor érvényes a felhasználónév
+            return false;
         }
         public bool ValidateEmail(string email)
         {
@@ -35,13 +30,13 @@ namespace kliens_app_rendeles
         public bool ValidateUsername(string username)
         {
             // Felhasználónév legalább 3 karakter hosszú legyen
-            if (username.Length > 3) return false;
+            if (username.Length < 3) return false;
 
             // Csak angol ABC betűk és számok
-            if (!Regex.IsMatch(username, "^[a-zA-Z0-9]+$")) return false;
+            if (Regex.IsMatch(username, "^[a-zA-Z]+$")) return true;
 
             // Ha minden feltétel teljesül, akkor érvényes a felhasználónév
-            return true;
+            return false;
         }
     }
 }

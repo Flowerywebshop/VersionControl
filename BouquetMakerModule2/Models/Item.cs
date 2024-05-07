@@ -70,5 +70,6 @@ namespace Dnn.Bce.BouquetMakerModule2.Models
         /// The date the object was updated
         ///</summary>
         public DateTime LastModifiedOnDate { get; set; } = DateTime.UtcNow;
+
     }
 }

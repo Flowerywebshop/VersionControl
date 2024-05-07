@@ -2,9 +2,40 @@
 
 @using System.Text.RegularExpressions
 @using DotNetNuke.Web.Mvc.Helpers
+@model Dnn.Bce.BouquetMakerModule2.Models.ApiSampleViewModel
+using static Dnn.Bce.BouquetMakerModule2.Models.ApiSampleModel;
 
 
-<!DOCTYPE html>
+
+<div id="Items-@Dnn.ModuleContext.ModuleId">
+    @if (Model.Count() == 0)
+    {
+        <p>@Dnn.LocalizeString("NoItems")</p>
+    }
+    else
+    {
+        <ul class="tm_tl">
+            @foreach (var item in Model)
+            {
+                <li class="tm_t">
+                    <h3>@item.ItemName</h3>
+                    <div class="tm_td">@item.ItemDescription</div>
+                    @{
+                        if (Dnn.ModuleContext.IsEditable)
+                        {
+                            <div>
+                                <a href="@Url.Action("Edit", "Item", new {ctl = "Edit", itemId = item.ItemId})">@Dnn.LocalizeString("EditItem")</a>
+                                <a href="@Url.Action("Delete", "Item", new {itemId = item.ItemId})">@Dnn.LocalizeString("DeleteItem")</a>
+                            </div>
+                        }
+                    }
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+<!--<!DOCTYPE html>
 <html>
 <head>
     <title>Csokorkészítő felület</title>
@@ -87,6 +118,111 @@
             font-weight: bold;
             font-size: 16px;
         }
+
+        #select-options {
+            font-size: 16px;
+            border-color: transparent;
+            padding: 2px 2px 2px 2px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            #select-options ::selection {
+                background: #70bb8b;
+                color: #fff;
+                text-shadow: none;
+                border: none;
+            }
+
+        ::selection {
+            background: #70bb8b;
+            color: #fff;
+            text-shadow: none;
+            border: none;
+        }
+
+        /* Custom select dropdown styles */
+        .custom-select {
+            display: inline-block;
+            padding: 12px 24px; /* increased padding for bigger size */
+            border: 1px solid #ccc;
+            border-radius: 8px; /* increased border-radius for rounded corners */
+            user-select: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* added box-shadow */
+            background-color: #fff; /* added background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .select-selected {
+            display: inline-block;
+            padding: 12px 24px; /* increased padding for bigger size */
+            border: 1px solid #ccc;
+            border-radius: 8px; /* increased border-radius for rounded corners */
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* added box-shadow */
+            background-color: #fff; /* added background color */
+        }
+
+            .select-selected:hover {
+                background-color: #e9e9e9;
+            }
+
+        .select-items {
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 8px 8px; /* increased border-radius */
+            z-index: 99;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* added box-shadow */
+        }
+
+            .select-items div {
+                padding: 12px 24px; /* increased padding */
+                cursor: pointer;
+                user-select: none;
+            }
+
+                .select-items div:hover {
+                    background-color: #e9e9e9;
+                }
+
+
+        .checkout-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition-duration: 0.4s;
+            margin-top: 40px;
+        }
+
+            /* Add hover effect */
+            .checkout-button:hover {
+                background-color: #45a049; /* Darker green */
+            }
+
+            /* Add a bit of shadow for depth */
+            .checkout-button:active {
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+
+        .disabled-button {
+            background-color: #C8E6C9 !important; /* Lighter green */
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -129,13 +265,17 @@
     </div>
 
 
-    <script>
-                /*function selectImage(img) {
-                    // Remove border from previously selected image
-                    var prevSelectedImage = document.querySelector('.selected-image');
-                    if (prevSelectedImage) {
-                        prevSelectedImage.classList.remove('selected-image');
-                    }
+                </select>
+            </div>
+
+            <!--<a href="@Url.Action("Flowers", "MyModule")" class="btn btn-primary">
+                <i class="fa fa-arrow-right"></i> Tovább
+            </a>-->
+<!--</div>
+</div>
+<div class="image-options">
+    <button class="checkout-button">Kosár</button>
+</div>
 
                     // Add border to the selected image
                     img.classList.add('selected-image');
@@ -144,40 +284,119 @@
                     document.getElementById('selected_image').value = img.alt;
                 }*/
 
-                var selectedOptions = {
-                    packaging: null,
-                    flowers: []
-                };
+<script>
+    var selectedOptions = {
+        packaging: null,
+        flowers: []
+    };
 
-                function selectOption(option) {
-                    var optionType = option.alt;
+    function selectOption(option) {
+        var optionType = option.alt;
 
-                    if (optionType === 'Csokor' || optionType === 'Doboz') {
-                        selectedOptions.packaging = optionType;
-                        updateSelection();
-                    } else {
-                        var index = selectedOptions.flowers.indexOf(optionType);
-                        if (index === -1 && selectedOptions.flowers.length < 3) {
-                            selectedOptions.flowers.push(optionType);
-                        } else if (index !== -1) {
-                            selectedOptions.flowers.splice(index, 1);
-                        }
+        if (optionType === 'Csokor' || optionType === 'Doboz') {
+            selectedOptions.packaging = optionType;
+            updateSelection();
+        } else {
+            var index = selectedOptions.flowers.indexOf(optionType);
+            if (index === -1 && selectedOptions.flowers.length < 3) {
+                selectedOptions.flowers.push(optionType);
+            } else if (index !== -1) {
+                selectedOptions.flowers.splice(index, 1);
+            }
 
-                        updateSelection();
-                    }
+            updateSelection();
+        }
+    }
+
+    function updateSelection() {
+        var options = document.querySelectorAll('.image-options img');
+        options.forEach(function (option) {
+            if (option.alt === selectedOptions.packaging || selectedOptions.flowers.includes(option.alt)) {
+                option.classList.add('selected-image');
+            } else {
+                option.classList.remove('selected-image');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // Handle button click
+        $('.checkout-button').click(function (e) {
+            e.preventDefault(); // Prevent the form from submitting
+
+            // Show custom pop-up notification
+            $('#custom-alert').fadeIn();
+        });
+
+        // Handle OK button click
+        $('#custom-alert-ok').click(function () {
+            $('#custom-alert').fadeOut();
+        });
+    });
+
+
+
+
+
+</script>
+
+<!-- Custom alert box -->
+<!--<div id="custom-alert" style="display: none; position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background-color: #ffffff; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); width: 80%; max-width: 600px; text-align: center;">
+        <p style="font-size: 24px;">Csokor kosárhoz adva!</p>
+        <button id="custom-alert-ok" style="padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 8px; cursor: pointer;">Tovább a fizetéshez</button>
+    </div>
+
+</body>
+</html>-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Hotcakes Commerce - Client-Side REST API Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Hotcakes Commerce</h1>
+    <h2>REST API Example</h2>
+
+    <p>This code sample must be run on the same domain as your website in order for it to work.</p>
+
+    <p><span style="font-weight: bold;">Connection Status:</span> <span id="lblStatus">Unknown</span></p>
+
+    <p style="font-weight: bold;">Output:</p>
+    <div id="divOutput">None</div>
+
+    <script>
+        // URL and API key from model
+        var url = "@Url";
+        var apiKey = "@Key";
+        // Path where the API is
+        var apiPath = "/DesktopModules/Hotcakes/API/rest/v1/";
+        // Endpoint as shown in the documentation
+        var endPoint = "categories";
+
+        $(document).ready(function() {
+            $.ajax({
+                dataType: "json",
+                url: url + apiPath + endPoint,
+                data: { key: apiKey },
+                type: 'GET',
+                success: function (data) {
+                    $('#lblStatus').html("Success!");
+                    var json = JSON.stringify(data);
+                    $('#divOutput').html(json);
+                },
+                error: function(jqXHR, textStatus) {
+                    $('#lblStatus').html("Error!");
+                    $('#divOutput').html(textStatus);
                 }
-
-                function updateSelection() {
-                    var options = document.querySelectorAll('.image-options img');
-                    options.forEach(function (option) {
-                        if (option.alt === selectedOptions.packaging || selectedOptions.flowers.includes(option.alt)) {
-                            option.classList.add('selected-image');
-                        } else {
-                            option.classList.remove('selected-image');
-                        }
-                    });
-                }
+            });
+        });
     </script>
-
 </body>
 </html>

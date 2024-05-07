@@ -25,6 +25,15 @@ namespace Dnn.Bce.BouquetMakerModule2.Controllers
     [DnnHandleError]
     public class ItemController : DnnController
     {
+         public ActionResult Flowers()
+        {
+            return View("~/DesktopModules/MyModule/Views/Flowers.cshtml");
+        }
+
+        public ActionResult Harmadik()
+        {
+            return View("~/DesktopModules/MyModule/Views/Harmadik.cshtml");
+        }
 
         public ActionResult Delete(int itemId)
         {

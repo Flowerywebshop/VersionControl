@@ -2,8 +2,7 @@
 
 @using System.Text.RegularExpressions
 @using DotNetNuke.Web.Mvc.Helpers
-@model Dnn.Bce.BouquetMakerModule2.Models.ApiSampleViewModel
-using static Dnn.Bce.BouquetMakerModule2.Models.ApiSampleModel;
+@Model Dnn.Bce.BouquetMakerModule2.Models.ApiSampleViewModel
 
 
 
@@ -373,8 +372,8 @@ using static Dnn.Bce.BouquetMakerModule2.Models.ApiSampleModel;
 
     <script>
         // URL and API key from model
-        var url = "@Url";
-        var apiKey = "@Key";
+        var url = "@Model.Url";
+        var apiKey = "@Model.Key";
         // Path where the API is
         var apiPath = "/DesktopModules/Hotcakes/API/rest/v1/";
         // Endpoint as shown in the documentation
